@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Destination</title>
+  <!-- Google Font Style -->
+  <style>
+    :root {
+      --bg-start: #e0f7fa;
+      --bg-end:   #f1f8e9;
+      --card-bg:  #ffffff;
+      --accent:   #1976d2;
+      --accent-dark: #0d47a1;
+      --text-main: #333;
+      --text-muted: #555;
+    }
+
+    /* Global resets */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      height: 100%;
+      overflow-y: auto;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+      color: var(--text-main);
+      min-height: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    /* Card container */
+    .container {
+      background: var(--card-bg);
+      width: 100%;
+      max-width: 800px;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      overflow: hidden;
+      animation: fadeIn 0.8s ease-out;
+      text-align: center;
+
+    }
+
+    /* Inner content */
+    .content {
+      padding: 2rem;
+      text-align: center;
+
+    }
+
+    /* Typography */
+    h1 { font-size: 2.75rem; color: var(--accent); margin-bottom: .5rem; }
+    h2 { font-size: 2rem; color: #c62828; margin-bottom: 1.5rem; }
+    h3 { font-size: 1.75rem; color: #2e7d32; margin-bottom: .75rem; }
+    h4 { font-size: 1.25rem; color: #424242; margin: 1.25rem 0 .5rem; }
+    p  { font-weight: 300; line-height: 1.6; color: var(--text-muted); }
+
+    /* Button */
+    .btn {
+      display: inline-block;
+      margin: 2rem auto 0;
+      padding: .75rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: background .3s, transform .2s;
+    }
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-3px);
+    }
+
+    /* Image container — image size reduced to 80px width */
+    .image-container {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    .image-container img {
+      width: 200px;
+      height: auto;
+    }
+
+    /* Destination info */
+    .destination-info {
+      background: var(--bg-end);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+      margin-top: 1.5rem;
+    }
+    .destination-info ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+    }
+    .destination-info ul li {
+      background: var(--card-bg);
+      padding: .75rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      font-size: 1rem;
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <h1>Your Ideal Travel Destination Is:</h1>
+      <h2>{{ destination }}</h2>
+      <p> We hope you enjoy your trip!</p>
+
+      {% if destination.lower() == 'switzerland' %}
+      <div class="image-container">
+        <img src="{{ user_image }}" alt="User Image">
+      </div>
+
+      <div class="destination-info">
+        <h3>Here is your quick guide in Switzerland!</h3>
+
+        <h4>Must-Visit Places:</h4>
+        <ul>
+          <li>Zurich – Finance & Nightlife</li>
+          <li>Bern – Medieval Capital</li>
+          <li>Geneva – International Hub</li>
+          <li>Lucerne – Lakeside Beauty</li>
+          <li>Interlaken – Adventure Sports</li>
+        </ul>
+
+        <h4>Things to Do:</h4>
+        <ul>
+          <li>Hike the Swiss Alps</li>
+          <li>Visit the Matterhorn</li>
+          <li>Stroll Through Lucerne</li>
+          <li>Boat on Lake Geneva</li>
+          <li>Ride Jungfrau Railway</li>
+        </ul>
+
+        <h4>What to Eat:</h4>
+        <ul>
+          <li>Fondue in Zermatt</li>
+          <li>Chocolate at Läderach (Zurich)</li>
+          <li>Rösti at a Traditional Chalet</li>
+          <li>Fine Dining at Crissier</li>
+          <li>Wine Tasting in Lavaux</li>
+        </ul>
+
+      
+      </div>
+      {% endif %}
+
+      <a class="btn" href="{{ url_for('index') }}">Try Again</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+     <title>Question {{ qid + 1 }}</title>
+     <style>
+        /* General reset for all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8; /* Light background color for a clean, airy feel */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333; /* Dark gray text for readability */
+        }
+
+        /* Main container styling */
+        .main-container {
+            background-color: #ffffff; /* White background for clarity */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1); /* Softer shadow for a premium look */
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            border-top: 5px solid #4CAF50; /* Green accent for a professional look */
+        }
+
+        /* Header styling */
+        h2 {
+            font-size: 32px;
+            color: #4CAF50; /* Vibrant, but professional green */
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Styling for the question text */
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: #444;
+            font-weight: 400;
+        }
+
+        /* Answers section */
+        .answers-container {
+            margin-bottom: 30px;
+            text-align: left; /* Align answers to the left */
+        }
+
+        .answer-option {
+            font-size: 16px;
+            color: #555;
+            margin: 10px 0;
+            display: block;
+            padding: 12px;
+            border-radius: 8px;
+            background-color: #fafafa;
+            transition: background-color 0.3s, transform 0.2s;
+            border: 1px solid #ddd;
+        }
+
+        .answer-option:hover {
+            background-color: #e0e0e0; /* Slight hover effect for answers */
+            transform: scale(1.03); /* Slight scale effect to emphasize hover */
+        }
+
+        /* Styling for the submit button */
+        .submit-btn {
+            background-color: #4CAF50; /* Consistent green for the button */
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049; /* Darker green on hover */
+            transform: scale(1.05); /* Slight scale effect for the button */
+        }
+
+        /* Mobile responsiveness */
+        @media screen and (max-width: 768px) {
+            .main-container {
+                width: 90%;
+                padding: 25px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .submit-btn {
+                font-size: 16px;
+            }
+        }
+    </style>
+     </head>
+     <body>
+         <div class="main-container">
+             <h2>Question {{ qid + 1 }}</h2>
+             <form method="post">
+                 <p>{{ question }}</p>
+                 <div class="answers-container">
+                     {% for idx, answer in answers %}
+                         <label class="answer-option">
+                             <input type="radio" name="answer" value="{{ idx }}" required> {{ answer }}
+                         </label><br>
+                     {% endfor %}
+                 </div>
+                 <input type="submit" value="Next" class="submit-btn">
+             </form>
+         </div>
+     </body>
+     </html>
+     
