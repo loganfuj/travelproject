@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canada Travel Guide</title>
+  
+
+  <style>
+:root {
+    --bg-start: #F2F2F2;  
+    --bg-end: #D32F2F;    
+    --card-bg: #FFFFFF;   
+    --accent: #B71C1C;     
+    --accent-dark: #9C1B1B; 
+    --text-main: #212121;  
+    --text-muted: #757575; 
+}
+
+/* Global resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow-y: auto;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(90deg, var(--bg-start) 0%, var(--bg-end) 100%); /* More subtle gradient */
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Card container */
+.container {
+  background: var(--card-bg);
+  width: 100%;
+  max-width: 800px;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-out;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Typography */
+h1 {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #c62828; /* Maple Red */
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+  color: #2e7d32; /* Forest Green */
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+  color: #424242; /* Charcoal */
+  margin: 1.5rem 0 1rem;
+}
+
+p {
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+/* Image container */
+.image-container {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.image-container img {
+  width: 350px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Destination info */
+ul {
+  list-style: none;
+  padding-left: 1rem;
+  margin: 0 auto 1rem;
+  max-width: 90%;
+  text-align: left;
+}
+
+ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+ul li::before {
+  content: "•";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn {
+  display: inline-block;
+  margin: 2rem auto 0;
+  padding: .75rem 2rem;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-3px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <h1>Your Ideal Travel Destination Is:</h1>
+    <h2>{{ destination }}</h2>
+    <p>We hope you enjoy your trip!</p>
+
+    <div class="image-container">
+      <img src="{{ image3 }}" alt="Canada Image" />
+    </div>
+
+    <div class="destination-info">
+      <h3>Here is your quick guide in Canada 🇨🇦</h3>
+
+      <h4>Must-Visit Places:</h4>
+      <ul>
+        <li>Tofino, British Columbia – Surf town on Vancouver Island, great for whale watching and storm watching.</li>
+        <li>Churchill, Manitoba – The “Polar Bear Capital of the World,” also great for Northern Lights and beluga whales.</li>
+        <li>Gros Morne National Park, Newfoundland and Labrador – UNESCO World Heritage site with fjords, cliffs, and geological marvels.</li>
+        <li>Prince Edward Island (PEI) – Red sand beaches, rolling countryside, and Anne of Green Gables heritage.</li>
+        <li>The Yukon & Whitehorse</li>
+      </ul>
+
+      <h4>Things to do:</h4>
+      <ul>
+        <li>Drive the Icefields Parkway (Alberta) – scenic roads</li>
+        <li>See Niagara Falls (Ontario) – By boat, helicopter, or from a tunnel behind the falls.</li>
+        <li>Tour the Cabot Trail (Nova Scotia) – Cliffside ocean views, wildlife, and fishing villages.</li>
+        <li>Walk through Old Quebec (Quebec City) – Cobblestone streets and European vibes.</li>
+      </ul>
+
+      <h4>What to eat:</h4>
+      <ul>
+        <li>St. Lawrence Market food vendors – Peameal bacon sandwiches, fresh oysters, Montreal-style bagels.</li>
+        <li>Schwartz’s Deli – Legendary Jewish deli since 1928, known for smoked meat sandwich on rye with mustard.</li>
+        <li>The Fish Counter – Ethical, fresh seafood with takeout-style service.</li>
+        <li>River Café – Located in a scenic park, great focus on local ingredients. Known for game meats, fish, and foraged ingredients.</li>
+        <li>Mallard Cottage – In a historic building, using Newfoundland ingredients. Known for local cod, moose, and hearty weekend brunch.</li>
+      </ul>
+    </div>
+
+    <!-- Try Again Button -->
+    <div style="text-align: center; margin-top: 2rem;">
+      <a class="btn" href="{{ url_for('index') }}">Try Again</a>
+    </div>
+  </div>
+</body>
+</html>

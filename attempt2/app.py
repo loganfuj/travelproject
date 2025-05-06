@@ -17,27 +17,27 @@ questions_data = [
     {
         'question': 'What type of scenery do you prefer?',
         'answers': ['Mountains', 'Beaches', 'Cities', 'Forests', 'Deserts'],
-        'scores': ['Switzerland', 'Maldives', 'New York', 'Canada', 'Morocco']
+        'scores': ['Switzerland', 'Maldives', 'New York', 'Canada', 'Egypt']
     },
     {
         'question': 'What’s your preferred climate?',
         'answers': ['Cold', 'Hot', 'Mild', 'Tropical', 'Dry'],
-        'scores': ['Switzerland', 'Morocco', 'New York', 'Maldives', 'Canada']
+        'scores': ['Switzerland', 'Egypt', 'New York', 'Maldives', 'Canada']
     },
     {
         'question': 'What type of activities do you enjoy?',
         'answers': ['Skiing', 'Swimming', 'Shopping', 'Hiking', 'Camel Riding'],
-        'scores': ['Switzerland', 'Maldives', 'New York', 'Canada', 'Morocco']
+        'scores': ['Switzerland', 'Maldives', 'New York', 'Canada', 'Egypt']
     },
     {
         'question': 'What pace of life do you enjoy while traveling?',
         'answers': ['Relaxed', 'Adventurous', 'Fast-paced', 'Laid-back', 'Cultural'],
-        'scores': ['Maldives', 'Canada', 'New York', 'Switzerland', 'Morocco']
+        'scores': ['Maldives', 'Canada', 'New York', 'Switzerland', 'Egypt']
     },
     {
         'question': 'Which cuisine do you prefer?',
         'answers': ['Cheese & Chocolate', 'Seafood', 'Fast Food', 'Poutine', 'Spices'],
-        'scores': ['Switzerland', 'Maldives', 'New York', 'Canada', 'Morocco']
+        'scores': ['Switzerland', 'Maldives', 'New York', 'Canada', 'Egypt']
     }
 ]
 
@@ -76,18 +76,51 @@ def question(qid):
 
 @app.route('/result')
 def result():
-    # Get the final scores from the session
     scores = session.get('scores', {})
-    
-    # If no scores, redirect to home page
     if not scores:
         return redirect(url_for('index'))
-    
-    # Find the destination with the highest score
+
     top_destination = max(scores, key=scores.get)
-    Flag = os.path.join(app.config['UPLOAD_FOLDER'], 'Flag.jpg')
-    
-    return render_template('result.html', destination=top_destination, user_image=Flag)
+
+    if top_destination.lower() == 'switzerland':
+        return redirect(url_for('swiss'))
+    elif top_destination.lower() == 'egypt':
+        return redirect(url_for('egypt'))
+    elif top_destination.lower() == 'canada':
+        return redirect(url_for('canada'))
+    elif top_destination.lower() == 'maldives':
+        return redirect(url_for('maldives'))
+    elif top_destination.lower() == 'new york':
+        return redirect(url_for('nyc'))
+
+    return render_template('result.html', destination=top_destination)
+
+
+@app.route('/swiss')
+def swiss():
+    swiss=os.path.join(app.config['UPLOAD_FOLDER'], 'swiss.jpg')
+    return render_template('swiss.html', destination='Switzerland', image1=swiss)
+
+@app.route('/egypt')
+def egypt():
+    egypt=os.path.join(app.config['UPLOAD_FOLDER'], 'egypt.jpg')
+    return render_template('egypt.html', destination='Egypt', image2=egypt)
+
+@app.route('/canada')
+def canada():
+    canada=os.path.join(app.config['UPLOAD_FOLDER'], 'canada.jpg')
+    return render_template('canada.html', destination='Canada', image3=canada)
+
+@app.route('/maldives')
+def maldives():
+    maldives=os.path.join(app.config['UPLOAD_FOLDER'], 'maldives.jpg')
+    return render_template('maldives.html', destination='Maldives', image4=maldives)
+
+@app.route('/nyc')
+def nyc():
+    nyc=os.path.join(app.config['UPLOAD_FOLDER'], 'nyc.jpg')
+    return render_template('nyc.html', destination='New York',image5=nyc)
+
 
 
 if __name__ == '__main__':

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Egypt Travel Guide</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-start: #d9b57b; /* sandy beige background */
+      --bg-end: #b38b63; /* dark sand */
+      --card-bg: #f2e0a6; /* parchment-like background */
+      --accent: #e1b97c; /* gold accent */
+      --accent-dark: #c18f5e; /* dark gold accent */
+      --text-main: #333; /* dark text */
+      --text-muted: #555; /* muted text */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: var(--card-bg);
+      width: 100%;
+      max-width: 800px;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      animation: fadeIn 0.8s ease-out;
+      text-align: center;
+      padding: 2rem;
+      border: 2px solid var(--accent);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #b86b0b; /* Egyptian hieroglyph gold */
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+      color: #6b7d2f; /* Nile green */
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+      color: #42372c;
+      margin: 1.5rem 0 1rem;
+    }
+
+    p {
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .image-container {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    .image-container img {
+      width: 350px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+      margin: 0 auto 1rem;
+      max-width: 90%;
+      text-align: left;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    ul li::before {
+      content: "•";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 2rem auto 0;
+      padding: .75rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: background.3s, transform .2s;
+    }
+
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-3px);
+    }
+
+    /* Egyptian-themed font animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .egyptian-icon {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-right: 10px;
+    }
+
+    .hieroglyphs {
+      font-family: "Poppins", sans-serif;
+      font-size: 2.5rem;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Your Ideal Travel Destination Is:</h1>
+    <h2>Egypt 🇪🇬</h2>
+    <p>We hope you enjoy your trip!</p>
+
+    <!-- Egypt Information -->
+    <div class="image-container">
+      <img src="{{ image2 }}" alt="User Image">
+    </div>
+
+    <div class="destination-info">
+      <h3>Here is your quick guide in Egypt 🇪🇬</h3>
+
+      <h4>Must-Visit Places:</h4>
+      <ul>
+        <li>Pyramids of Giza: Ancient Burial Site</li>
+        <li>Valley of the Kings: Royal Tombs</li>
+        <li>Nubian Villages: Traditional Villages</li>
+        <li>Khan el-Khalili Market: Cairo’s Historic Market</li>
+        <li>Library of Celsus: Roman Library Ruins</li>
+      </ul>
+
+      <h4>Things to Do:</h4>
+      <ul>
+        <li>Camel Ride by Pyramids</li>
+        <li>Nile Cruise: Luxor to Aswan</li>
+        <li>Explore Tombs & Temples</li>
+        <li>Visit Traditional Bazaar</li>
+        <li>Scuba Diving in Red Sea</li>
+      </ul>
+
+      <h4>What to Eat:</h4>
+      <ul>
+        <li>Koshari Abou Tarek: Rice, pasta, lentils, chickpeas, and tomato sauce</li>
+        <li>Zooba: Ful Medames, Fava beans with olive oil and spices</li>
+        <li>El-Dahan: Ta’ameya, falafel made with fava beans</li>
+        <li>Sobhy Kaber: Molokhia, the green soup made from jute leaves</li>
+        <li>Kebabgy: Grilled meats & kebabs</li>
+        <li>Koshary El Tahrir: Tahrir</li>
+      </ul>
+    </div>
+
+    <!-- Try Again Button -->
+    <div style="text-align: center; margin-top: 2rem;">
+      <a class="btn" href="{{ url_for('index') }}">Try Again</a>
+    </div>
+  </div>
+</body>
+</html>

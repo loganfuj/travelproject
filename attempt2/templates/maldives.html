@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maldives Travel Guide</title>
+
+  <style>
+    :root {
+      --bg-start: #a1e3d8;
+      --bg-middle: #fdfcfb;
+      --bg-end: #f9d29d;
+      --card-bg: #ffffff;
+      --accent: #0097a7;        /* Ocean Blue */
+      --accent-dark: #006064;   /* Deep Sea Blue */
+      --text-main: #222;
+      --text-muted: #444;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      height: 100%;
+    }
+
+    body {
+  font-family: 'Poppins', sans-serif;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center center / cover no-repeat fixed;
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+    .container {
+    background: rgba(255, 255, 255, 0.95); /* Slight transparency */
+    width: 100%;
+    max-width: 800px;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out;
+    text-align: center;
+    padding: 2rem;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #ff7043;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+      color: #00796b;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+      color: #424242;
+      margin: 1.5rem 0 1rem;
+    }
+
+    p {
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .image-container {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    .image-container img {
+      width: 350px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+      margin: 0 auto 1rem;
+      max-width: 90%;
+      text-align: left;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    ul li::before {
+      content: "🌴";
+      position: absolute;
+      left: 0;
+      font-size: 1rem;
+      top: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 2rem auto 0;
+      padding: 0.75rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Your Ideal Travel Destination Is:</h1>
+    <h2>Maldives</h2>
+    <p>We hope you enjoy your trip!</p>
+
+    <div class="image-container">
+      <img src="{{ image4 }}" alt="User Image" />
+    </div>
+
+    <h3>Here is your quick guide in Maldives 🇲🇻</h3>
+
+    <h4>Must-Visit Places:</h4>
+    <ul>
+      <li>Malé – The capital with markets and mosques</li>
+      <li>Maafushi Island – Local culture and budget-friendly guesthouses</li>
+      <li>Baa Atoll (UNESCO Biosphere Reserve) – Marine life hotspot</li>
+      <li>Vaadhoo Island – Known for bioluminescent “sea of stars”</li>
+    </ul>
+
+    <h4>Things to Do:</h4>
+    <ul>
+      <li>Snorkeling and diving (coral reefs, manta rays, whale sharks)</li>
+      <li>Overwater bungalow stays</li>
+      <li>Sunset cruises and dolphin watching</li>
+      <li>Spa and wellness experiences</li>
+      <li>Sandbank picnics and kayaking</li>
+    </ul>
+
+    <h4>What to Eat:</h4>
+    <ul>
+      <li>Mas Huni – Tuna with coconut, onion, and chili (often for breakfast)</li>
+      <li>Garudhiya – Clear fish broth with rice, lime, chili, and onions</li>
+      <li>Fihunu mas – Grilled spicy fish</li>
+      <li>Coconut-based curries</li>
+      <li>Fresh tropical fruits: papaya, mango, banana, coconut</li>
+    </ul>
+
+    <!-- Try Again Button -->
+    <div style="text-align: center; margin-top: 2rem;">
+      <a class="btn" href="{{ url_for('index') }}">Try Again</a>
+    </div>
+  </div>
+</body>
+</html>

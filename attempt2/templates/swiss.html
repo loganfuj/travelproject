@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Switzerland Travel Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-start: #f1f8e9;
+      --bg-end: #e0f7fa;
+      --card-bg: #ffffff;
+      --accent: #388e3c;
+      --accent-dark: #2c6e2f;
+      --text-main: #3e2723;
+      --text-muted: #6d4c41;
+      --border-color: #a5d6a7;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://www.vecteezy.com/vector-art/5026758-cartoon-doodle-mountains-seamless-pattern-nature-background'); /* Actual Image URL */
+      background-repeat: repeat;
+      background-size: auto;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: var(--card-bg);
+      width: 100%;
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px var(--shadow-color);
+      padding: 2rem;
+      border: 2px solid var(--border-color);
+      text-align: center;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: var(--accent-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+      color: var(--text-main);
+      margin: 1.5rem 0 1rem;
+    }
+
+    p {
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .image-container {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    .image-container img {
+      width: 350px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px var(--shadow-color);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+      margin: 0 auto 1rem;
+      max-width: 90%;
+      text-align: left;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    ul li::before {
+      content: "•";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 2rem auto 0;
+      padding: .75rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px var(--shadow-color);
+      transition: background .3s, transform .2s;
+    }
+
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Your Ideal Travel Destination Is:</h1>
+    <h2>{{ destination }}</h2>
+    <p>We hope you enjoy your trip!</p>
+
+    <div class="image-container">
+      <img src="{{ image1 }}" alt="User Image" />
+    </div>
+
+    <h3>Here is your quick guide in Switzerland</h3>
+
+    <h4>Must-Visit Places:</h4>
+    <ul>
+      <li>Zurich – Finance & Nightlife</li>
+      <li>Bern – Medieval Capital</li>
+      <li>Geneva – International Hub</li>
+      <li>Lucerne – Lakeside Beauty</li>
+      <li>Interlaken – Adventure Sports</li>
+    </ul>
+
+    <h4>Things to Do:</h4>
+    <ul>
+      <li>Hike the Swiss Alps</li>
+      <li>Visit the Matterhorn</li>
+      <li>Stroll Through Lucerne</li>
+      <li>Boat on Lake Geneva</li>
+      <li>Ride Jungfrau Railway</li>
+    </ul>
+
+    <h4>What to Eat:</h4>
+    <ul>
+      <li>Fondue in Zermatt</li>
+      <li>Chocolate at Läderach (Zurich)</li>
+      <li>Rösti at a Traditional Chalet</li>
+      <li>Fine Dining at Crissier</li>
+      <li>Wine Tasting in Lavaux</li>
+    </ul>
+
+    <div style="text-align: center; margin-top: 2rem;">
+      <a class="btn" href="{{ url_for('index') }}">Try Again</a>
+    </div>
+  </div>
+</body>
+</html>
