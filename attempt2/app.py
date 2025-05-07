@@ -12,7 +12,8 @@ app.config['UPLOAD_FOLDER'] = picFolder
 
 
 
-# Define questions and answers using pandas
+import pandas as pd
+
 questions_data = [
     {
         'question': 'What type of scenery do you prefer?',
@@ -38,8 +39,33 @@ questions_data = [
         'question': 'Which cuisine do you prefer?',
         'answers': ['Cheese & Chocolate', 'Seafood', 'Fast Food', 'Poutine', 'Spices'],
         'scores': ['Switzerland', 'Maldives', 'New York', 'Canada', 'Egypt']
+    },
+    {
+        'question': 'What kind of scenery makes you feel most relaxed?',
+        'answers': ['Snowy mountains', 'Vast deserts and ancient ruins', 'City parks and skyline views', 'Quiet beaches and turquoise water', 'Peaceful lakes and forests'],
+        'scores': ['Switzerland', 'Egypt', 'New York', 'Maldives', 'Canada']
+    },
+    {
+        'question': 'Which souvenir would you love to bring home?',
+        'answers': ['Handmade chocolates and watches', 'Papyrus art or miniature pyramids', 'Trendy clothes and gadgets', 'Seashell jewelry or spa products', 'Maple syrup or indigenous crafts'],
+        'scores': ['Switzerland', 'Egypt', 'New York', 'Maldives', 'Canada']
+    },
+    {
+        'question': 'What type of accommodation do you prefer?',
+        'answers': ['Mountain chalets with panoramic views', 'Luxurious resorts near ancient landmarks', 'Trendy hotels with a city view', 'Overwater bungalows and private villas', 'Rustic cabins or lodges in the wilderness'],
+        'scores': ['Switzerland', 'Egypt', 'New York', 'Maldives', 'Canada']
+    },
+    {
+        'question': 'What is your budget for a trip?',
+        'answers': ['Luxury – I want to indulge and stay in the best hotels', 'Mid-range – Comfortable but affordable accommodations', 'Budget-friendly – I want to save on lodging and experiences', 'Flexible – I want to mix both luxury and budget options', 'Minimal – I’m looking for the most affordable travel options'],
+        'scores': ['Switzerland', 'Egypt', 'New York', 'Maldives', 'Canada']
     }
 ]
+
+# Convert to a DataFrame if needed
+df = pd.DataFrame(questions_data)
+print(df)
+
 
 # Convert the questions and answers into a pandas DataFrame
 df_questions = pd.DataFrame(questions_data)
@@ -92,8 +118,9 @@ def result():
         return redirect(url_for('maldives'))
     elif top_destination.lower() == 'new york':
         return redirect(url_for('nyc'))
-
-    return render_template('result.html', destination=top_destination)
+    else:
+        # Redirect to a custom error page if destination not found
+        return render_template('error.html', destination=top_destination)
 
 
 @app.route('/swiss')
