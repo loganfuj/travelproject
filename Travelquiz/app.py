@@ -29,6 +29,7 @@ def save_user_data(data):
 
 import pandas as pd
 
+# Questions to ask user
 questions_data = [
     {
         'question': 'What type of scenery do you prefer?',
@@ -110,13 +111,13 @@ def login():
 # Convert the questions and answers into a pandas DataFrame
 df_questions = pd.DataFrame(questions_data)
 
-#Index html
+# Index html
 @app.route('/index')  # Changed to avoid conflict with login
 def index():
     session['scores'] = {}  # Reset scores when starting a new quiz
     return render_template('index.html')
 
-#Question page
+# Question page
 @app.route('/question/<int:qid>', methods=['GET', 'POST'])
 def question(qid):
     if request.method == 'POST':
@@ -149,7 +150,7 @@ def question(qid):
                            progress_percentage=progress_percentage)
 
 
-#Result page of each destination
+# Result page of each destination
 @app.route('/result')
 def result():
     scores = session.get('scores', {})
