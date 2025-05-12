@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Switzerland Travel Guide</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -32,9 +31,7 @@
     }
 body {
   font-family: 'Poppins', sans-serif;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Matterhorn_from_Domhütte_-_2.jpg/1920px-Matterhorn_from_Domhütte_-_2.jpg');
+  background-image: url('https://images.unsplash.com/photo-1593186344142-ef775a6e596f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3dpc3MlMjBhbHBzfGVufDB8fDB8fHww');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -120,15 +117,23 @@ body {
     }
 
     ul li::before {
-      content: "•";
-      color: var(--accent);
-      position: absolute;
-      left: 0;
-      font-size: 1.2rem;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
+  content: "✚"; /* Swiss cross symbol */
+  color: white;
+  position: absolute;
+  left: 0;
+  font-size: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  /* Make it look more like the Swiss flag - a white cross on red background */
+  background-color: #FF0000; /* Explicitly setting bright red only for bullet points */
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+}
     .btn {
       display: inline-block;
       margin: 2rem auto 0;
@@ -156,6 +161,8 @@ body {
         opacity: 1;
         transform: translateY(0);
       }
+    
+      
     }
 
   </style>
