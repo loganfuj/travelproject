@@ -1,13 +1,12 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- Link to the CSS file -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to the CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-     <title>Question {{ qid + 1 }}</title>
-     <style>
+    <title>Question {{ qid + 1 }}</title>
+    <style>
         /* General reset for all elements */
         * {
             margin: 0;
@@ -18,31 +17,31 @@
         /* Body styling */
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f0f4f8; /* Light background color for a clean, airy feel */
+            background-color: #e1f3fb;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            color: #333; /* Dark gray text for readability */
+            color: #0a3d7f; 
         }
 
         /* Main container styling */
         .main-container {
-            background-color: #ffffff; /* White background for clarity */
+            background-color: #ffffff; 
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1); /* Softer shadow for a premium look */
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1); 
             max-width: 700px;
             width: 100%;
             text-align: center;
-            border-top: 5px solid #4CAF50; /* Green accent for a professional look */
+            border-top: 5px solid #0077b6; 
         }
 
         /* Header styling */
         h2 {
             font-size: 32px;
-            color: #4CAF50; /* Vibrant, but professional green */
+            color: #0077b6; 
             margin-bottom: 20px;
             font-weight: 600;
         }
@@ -59,29 +58,31 @@
         /* Answers section */
         .answers-container {
             margin-bottom: 30px;
-            text-align: left; /* Align answers to the left */
+            text-align: left; 
         }
 
-        .answer-option {
-            font-size: 16px;
-            color: #555;
-            margin: 10px 0;
-            display: block;
-            padding: 12px;
-            border-radius: 8px;
-            background-color: #fafafa;
-            transition: background-color 0.3s, transform 0.2s;
-            border: 1px solid #ddd;
-        }
+            .answer-option {
+        font-size: 16px;
+        color: #2a2a2a; 
+        margin: 10px 0;
+        display: block;
+        padding: 12px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #ddedfd, #80c1f9); 
+        transition: background-color 0.3s, transform 0.2s;
+        border: 1px solid #bcdfff;
+    }
 
-        .answer-option:hover {
-            background-color: #e0e0e0; /* Slight hover effect for answers */
-            transform: scale(1.03); /* Slight scale effect to emphasize hover */
-        }
+    .answer-option:hover {
+        background: linear-gradient(135deg, #cee6f7, #b5dcff); 
+        transform: scale(1.03);
+    }
+
+
 
         /* Styling for the submit button */
         .submit-btn {
-            background-color: #4CAF50; /* Consistent green for the button */
+            background-color: #0077b6; 
             color: white;
             padding: 15px 30px;
             font-size: 18px;
@@ -93,46 +94,66 @@
         }
 
         .submit-btn:hover {
-            background-color: #45a049; /* Darker green on hover */
-            transform: scale(1.05); /* Slight scale effect for the button */
+            background-color: #005f8a; 
+            transform: scale(1.05); 
         }
 
-        /* Mobile responsiveness */
+        /* Progress bar */
+        .progress-bar {
+            height: 10px;
+            background-color: #6ab9f1; 
+            transition: width 0.3s ease;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .progress-info {
+            font-size: 16px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Media query (keep responsive tweaks only) */
         @media screen and (max-width: 768px) {
             .main-container {
                 width: 90%;
                 padding: 25px;
             }
-
             h2 {
                 font-size: 28px;
             }
-
             p {
                 font-size: 16px;
             }
-
             .submit-btn {
                 font-size: 16px;
             }
         }
     </style>
-     </head>
-     <body>
-         <div class="main-container">
-             <h2>Question {{ qid + 1 }}</h2>
-             <form method="post">
-                 <p>{{ question }}</p>
-                 <div class="answers-container">
-                     {% for idx, answer in answers %}
-                         <label class="answer-option">
-                             <input type="radio" name="answer" value="{{ idx }}" required> {{ answer }}
-                         </label><br>
-                     {% endfor %}
-                 </div>
-                 <input type="submit" value="Next" class="submit-btn">
-             </form>
-         </div>
-     </body>
-     </html>
-     
+</head>
+<body>
+    <div class="main-container">
+        <h2>Question {{ qid + 1 }}</h2>
+
+        <!-- Progress bar -->
+        <div class="progress-bar" {% if progress_percentage is defined %}style="width: {{ progress_percentage }}%"{% else %}style="width: 0%"{% endif %}></div>
+
+        <div class="progress-info">
+            Question {{ qid + 1 }} of {{ total_questions }}
+        </div>
+        
+        <form method="post">
+            <p>{{ question }}</p>
+            <div class="answers-container">
+                {% for idx, answer in answers %}
+                    <label class="answer-option">
+                        <input type="radio" name="answer" value="{{ idx }}" required> {{ answer }}
+                    </label><br>
+                {% endfor %}
+            </div>
+            <input type="submit" value="Next" class="submit-btn">
+        </form>
+    </div>
+</body>
+</html>

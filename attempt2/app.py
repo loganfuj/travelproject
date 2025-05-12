@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 import pandas as pd
 import os
+import json
 
 
 app = Flask(__name__)
@@ -10,7 +11,21 @@ app.secret_key = 'your_secret_key'  # Required for session management
 picFolder = os.path.join('static', 'pics')
 app.config['UPLOAD_FOLDER'] = picFolder
 
+# Path for storing user data
+USER_DATA_FILE = "user_data.json"
 
+def load_user_data():
+    if os.path.exists(USER_DATA_FILE):
+        with open(USER_DATA_FILE, 'r') as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                return {}
+    return {}
+
+def save_user_data(data):
+    with open(USER_DATA_FILE, 'w') as f:
+        json.dump(data, f, indent=4)
 
 import pandas as pd
 
@@ -66,39 +81,74 @@ questions_data = [
 df = pd.DataFrame(questions_data)
 print(df)
 
+# Login route
+@app.route('/', methods=['GET', 'POST'])
+def login():
+    """Handle user login."""
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        
+        user_data = load_user_data()
+        
+        if username in user_data and user_data[username]['password'] == password:
+            session['username'] = username
+            return redirect(url_for('index'))  # Redirect to index after successful login
+        else:
+            if username not in user_data:
+                user_data[username] = {
+                    'password': password,
+                }
+                save_user_data(user_data)
+                session['username'] = username
+                return redirect(url_for('index'))  # Redirect to index if new user
+            else:
+                flash('Incorrect password')
+    
+    return render_template('login.html')
 
 # Convert the questions and answers into a pandas DataFrame
 df_questions = pd.DataFrame(questions_data)
 
-@app.route('/')
+# Index Route
+@app.route('/index')  # Changed to avoid conflict with login
 def index():
     session['scores'] = {}  # Reset scores when starting a new quiz
     return render_template('index.html')
 
+
 @app.route('/question/<int:qid>', methods=['GET', 'POST'])
 def question(qid):
     if request.method == 'POST':
-        # Get the selected answer's index
+        # Process the answer submission
         answer_index = int(request.form['answer'])
-        
-        # Get the corresponding destination for the selected answer
         destination = df_questions.iloc[qid]['scores'][answer_index]
-        
-        # Update the score for the selected destination in the session
         scores = session.get('scores', {})
         scores[destination] = scores.get(destination, 0) + 1
-        session['scores'] = scores  # Store updated scores in session
-        
-        # Move to the next question or show the result
+        session['scores'] = scores
+
+        # Move to next question or show result
         if qid + 1 < len(df_questions):
             return redirect(url_for('question', qid=qid + 1))
         else:
             return redirect(url_for('result'))
+        
+    total_questions = len(df_questions)
+    progress_percentage = int(((qid + 1) / total_questions) * 100)
 
-    # Display the current question and possible answers
-    question = df_questions.iloc[qid]['question']
-    answers = df_questions.iloc[qid]['answers']
-    return render_template('question.html', question=question, answers=enumerate(answers), qid=qid)
+    # Debugging print statements
+    print(f"Progress: {progress_percentage}%")
+    print(f"Total Questions: {total_questions}")
+
+    # Pass total_questions and progress_percentage to the template
+    return render_template('question.html', 
+                           question=df_questions.iloc[qid]['question'], 
+                           answers=enumerate(df_questions.iloc[qid]['answers']), 
+                           qid=qid, 
+                           total_questions=total_questions,
+                           progress_percentage=progress_percentage)
+
+
 
 @app.route('/result')
 def result():
@@ -148,9 +198,11 @@ def nyc():
     nyc=os.path.join(app.config['UPLOAD_FOLDER'], 'nyc.jpg')
     return render_template('nyc.html', destination='New York',image5=nyc)
 
-
+@app.route('/logout')
+def logout():
+    """Log out the user."""
+    session.clear()
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
    app.run(debug=True, port=5008)
-
-   

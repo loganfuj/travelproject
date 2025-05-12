@@ -8,35 +8,33 @@
 /* Body styling */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f4f7f6; /* Light grey background to keep it neutral */
+    background-color: #e1f3fb; /* Light blue background */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    color: #333; /* Dark text for readability */
+    color: #0a3d7f; /* Darker blue for readable text */
 }
 
-/* Main container for centering everything */
+/* Main container */
 .main-container {
-    background-color: #ffffff; /* Clean white background for the container */
+    background-color: #ffffff; /* White for clean contrast */
     padding: 40px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
     border-radius: 15px;
     text-align: center;
     max-width: 800px;
     width: 100%;
-    background: linear-gradient(to bottom right, #cce7ff, #ffecd2); /* Gentle gradient with beachy tones */
 }
 
 /* Header styling */
 header {
-    background-color: #8a088c; /* Coral color for a vibrant, tropical feel */
-    color: white;
+    background-color: #0077b6; /* Blue header */
+    color: #ffffff;
     padding: 25px;
     border-radius: 10px;
     margin-bottom: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 header h1 {
@@ -44,8 +42,7 @@ header h1 {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 10px;
-    color: #fff;
+    color: #ffffff;
 }
 
 /* Content section (quiz intro) */
@@ -55,7 +52,7 @@ header h1 {
 
 .content-container h2 {
     font-size: 32px;
-    color: #2c3e50; /* Dark blue for contrast */
+    color: #0077b6; /* Medium blue */
     margin-bottom: 20px;
     font-weight: bold;
     text-transform: uppercase;
@@ -69,27 +66,28 @@ header h1 {
 }
 
 .content-container a {
-    background-color: #2ecc71; /* Fresh, tropical green */
+    background-color: #0077b6; /* Blue button */
     padding: 15px 30px;
-    color: white;
+    color: #ffffff;
     font-size: 18px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     transition: background-color 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
     margin-top: 15px;
+    display: inline-block;
 }
 
 .content-container a:hover {
-    background-color: #27ae60; /* Slightly darker green on hover for effect */
+    background-color: #005f8a; /* Darker blue on hover */
 }
 
 /* Footer styling */
 footer {
-    background-color: #2c3e50; /* Dark blue for footer to balance the theme */
-    color: white;
+    background-color: #90e0ef; /* Light blue footer */
+    color: #ffffff;
     padding: 20px;
     margin-top: 30px;
     font-size: 14px;
@@ -123,6 +121,4 @@ footer {
     footer p {
         font-size: 12px;
     }
-
-    
 }

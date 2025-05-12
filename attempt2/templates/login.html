@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #E0F7FA; /* Light Blue */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Login Container */
+        .login-container {
+            background-color: #FFFFFF; /* White */
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            width: 380px;
+            text-align: center;
+            margin: 20px;
+        }
+
+        /* Headings */
+        .login-container h1 {
+            margin-bottom: 20px;
+            color: #0277BD; /* Blue */
+            font-size: 28px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Flash Messages */
+        .flash-message {
+            background-color: #0288D1; /* Darker Blue */
+            color: white;
+            border: 1px solid #81D4FA; /* Light Blue */
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        /* Form Groups */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        /* Labels */
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #333; /* Dark Grey */
+            font-size: 14px;
+        }
+
+        /* Inputs */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #cfe3ed; /* Light Blueish */
+            border-radius: 8px;
+            background-color: #FFFFFF; /* White */
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #0277BD; /* Blue */
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #0277BD; /* Blue */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background-color: #0288D1; /* Darker Blue on hover */
+        }
+
+        /* Info Text */
+        .info-text {
+            margin-top: 15px;
+            color: #888; 
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .login-container {
+                width: 90%;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login to access Travel Suggestor</h1>
+
+        <!-- Flash messages for feedback (e.g., errors, success) -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash-message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Login form -->
+        <form method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <!-- Submit button for login or account creation -->
+            <button type="submit">Login / Create Account</button>
+        </form>
+
+        <!-- Info text about login process -->
+        <p class="info-text">
+            Enter your username and password to login.<br>
+            New users will be automatically registered.
+        </p>
+    </div>
+</body>
+</html>
