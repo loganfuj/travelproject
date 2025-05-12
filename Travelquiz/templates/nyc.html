@@ -9,7 +9,7 @@
 
   :root {
     --bg-overlay: rgba(0, 0, 0, 0.6);
-    --accent: #FFD700; /* NYC Taxi Yellow */
+    --accent: #FFD700; 
     --accent-dark: #bfa100;
     --text-main: #f5f5f5;
     --text-muted: #ccc;
@@ -19,7 +19,7 @@
   body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="60" width="10" height="40" fill="%23424242"/><rect x="15" y="40" width="15" height="60" fill="%23616161"/><rect x="35" y="30" width="10" height="70" fill="%23424242"/><rect x="50" y="50" width="15" height="50" fill="%23616161"/><rect x="70" y="20" width="10" height="80" fill="%23424242"/><rect x="85" y="45" width="15" height="55" fill="%23616161"/></svg>');
+              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="60" width="10" height="40" fill="%23424242"/><rect x="15" y="40" width="15" height="60" fill="%23616161"/><rect x="35" y="30" width="10" height="70" fill="%23424242"/><rect x="50" y="50" width="15" height="50" fill="%23616161"/><rect x="70" y="20" width="10" height="80" fill="%23424242"/><rect x="85" y="45" width="15" height="55" fill="%23616161"/></svg>');/* nyc  background */
   background-color: #1e3a5f;
   color: var(--text-main);
   min-height: 100vh;
@@ -75,6 +75,7 @@
     margin-bottom: 1.5rem;
   }
 
+  /* Destination info */
   ul {
     list-style: none;
     padding-left: 1rem;
@@ -92,7 +93,7 @@
   }
 
   ul li::before {
-    content: "✔";
+    content: "✔"; /* yellow tick bullet points */
     color: var(--accent);
     position: absolute;
     left: 0;
@@ -130,10 +131,13 @@
     <h1>Your Ideal Travel Destination Is:</h1>
     <h2>New York</h2>
     <p>We hope you enjoy your trip!</p>
-
+   
+    <!-- nyc image-->
     <div class="image-container">
       <img src="{{ image5 }}" alt="User Image" />
     </div>
+
+    <!-- Destination info that are different for each destination-->
 
     <h3>Here is your quick guide in New York 🗽</h3>
 

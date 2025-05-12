@@ -11,8 +11,8 @@
       --bg-middle: #fdfcfb;
       --bg-end: #f9d29d;
       --card-bg: #ffffff;
-      --accent: #0097a7;        /* Ocean Blue */
-      --accent-dark: #006064;   /* Deep Sea Blue */
+      --accent: #0097a7;        
+      --accent-dark: #006064; 
       --text-main: #222;
       --text-muted: #444;
     }
@@ -30,7 +30,7 @@
 
     body {
   font-family: 'Poppins', sans-serif;
-  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center center / cover no-repeat fixed;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center center / cover no-repeat fixed; /* maldives image background */
   color: var(--text-main);
   min-height: 100vh;
   display: flex;
@@ -95,6 +95,7 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
 
+  /* Destination info */
     ul {
       list-style: none;
       padding-left: 1rem;
@@ -112,7 +113,7 @@
     }
 
     ul li::before {
-      content: "🌴";
+      content: "🌴"; /* palm tree bullet points */
       position: absolute;
       left: 0;
       font-size: 1rem;
@@ -154,11 +155,13 @@
     <h1>Your Ideal Travel Destination Is:</h1>
     <h2>Maldives</h2>
     <p>We hope you enjoy your trip!</p>
-
+   
+    <!-- Maldives image-->
     <div class="image-container">
       <img src="{{ image4 }}" alt="User Image" />
     </div>
 
+    <!-- Destination info that are different for each destination-->
     <h3>Here is your quick guide in Maldives 🇲🇻</h3>
 
     <h4>Must-Visit Places:</h4>

@@ -29,19 +29,19 @@
       height: 100%;
       overflow-y: auto;
     }
-body {
-  font-family: 'Poppins', sans-serif;
-  background-image: url('https://images.unsplash.com/photo-1593186344142-ef775a6e596f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3dpc3MlMjBhbHBzfGVufDB8fDB8fHww');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: var(--text-main);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  padding: 40px 20px;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1593186344142-ef775a6e596f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3dpc3MlMjBhbHBzfGVufDB8fDB8fHww');/* swiss image background */
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
 
 
     .container {
@@ -99,6 +99,7 @@ body {
       border-radius: 8px;
       box-shadow: 0 6px 12px var(--shadow-color);
     }
+    /* Destination info */
 
     ul {
       list-style: none;
@@ -117,23 +118,23 @@ body {
     }
 
     ul li::before {
-  content: "✚"; /* Swiss cross symbol */
-  color: white;
-  position: absolute;
-  left: 0;
-  font-size: 0.9rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-weight: bold;
-  /* Make it look more like the Swiss flag - a white cross on red background */
-  background-color: #FF0000; /* Explicitly setting bright red only for bullet points */
-  width: 16px;
-  height: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 2px;
-}
+    content: "✚"; /* Swiss cross symbol */
+    color: white;
+    position: absolute;
+    left: 0;
+    font-size: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    /* Swiss flag - a white cross on red background */
+    background-color: #FF0000; /*bright red only for bullet points */
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+  }
     .btn {
       display: inline-block;
       margin: 2rem auto 0;
@@ -172,11 +173,13 @@ body {
     <h1>Your Ideal Travel Destination Is:</h1>
     <h2>{{ destination }}</h2>
     <p>We hope you enjoy your trip!</p>
-
+   
+    <!-- Swiss image-->
     <div class="image-container">
       <img src="{{ image1 }}" alt="User Image" />
     </div>
 
+    <!-- Destination info that are different for each destination-->
     <h3>Here is your quick guide in Switzerland</h3>
 
     <h4>Must-Visit Places:</h4>
@@ -205,7 +208,7 @@ body {
       <li>Fine Dining at Crissier</li>
       <li>Wine Tasting in Lavaux</li>
     </ul>
-
+     <!-- Try Again Button -->
     <div style="text-align: center; margin-top: 2rem;">
       <a class="btn" href="{{ url_for('index') }}">Try Again</a>
       <a class= "btn" href="{{ url_for('logout') }}" class="button-link logout">Log Out</a>

@@ -110,13 +110,13 @@ def login():
 # Convert the questions and answers into a pandas DataFrame
 df_questions = pd.DataFrame(questions_data)
 
-# Index Route
+#Index html
 @app.route('/index')  # Changed to avoid conflict with login
 def index():
     session['scores'] = {}  # Reset scores when starting a new quiz
     return render_template('index.html')
 
-
+#Question page
 @app.route('/question/<int:qid>', methods=['GET', 'POST'])
 def question(qid):
     if request.method == 'POST':
@@ -149,7 +149,7 @@ def question(qid):
                            progress_percentage=progress_percentage)
 
 
-
+#Result page of each destination
 @app.route('/result')
 def result():
     scores = session.get('scores', {})
@@ -171,7 +171,6 @@ def result():
     else:
         # Redirect to a custom error page if destination not found
         return render_template('error.html', destination=top_destination)
-
 
 @app.route('/swiss')
 def swiss():
@@ -197,6 +196,7 @@ def maldives():
 def nyc():
     nyc=os.path.join(app.config['UPLOAD_FOLDER'], 'nyc.jpg')
     return render_template('nyc.html', destination='New York',image5=nyc)
+
 
 @app.route('/logout')
 def logout():

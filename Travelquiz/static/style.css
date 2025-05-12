@@ -8,17 +8,17 @@
 /* Body styling */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #e1f3fb; /* Light blue background */
+    background-color: #e1f3fb; 
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #0a3d7f; /* Darker blue for readable text */
+    color: #0a3d7f;
 }
 
 /* Main container */
 .main-container {
-    background-color: #ffffff; /* White for clean contrast */
+    background-color: #ffffff; 
     padding: 40px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
     border-radius: 15px;
@@ -29,7 +29,7 @@ body {
 
 /* Header styling */
 header {
-    background-color: #0077b6; /* Blue header */
+    background-color: #0077b6; 
     color: #ffffff;
     padding: 25px;
     border-radius: 10px;
@@ -52,7 +52,7 @@ header h1 {
 
 .content-container h2 {
     font-size: 32px;
-    color: #0077b6; /* Medium blue */
+    color: #0077b6; 
     margin-bottom: 20px;
     font-weight: bold;
     text-transform: uppercase;
@@ -66,7 +66,7 @@ header h1 {
 }
 
 .content-container a {
-    background-color: #0077b6; /* Blue button */
+    background-color: #0077b6; 
     padding: 15px 30px;
     color: #ffffff;
     font-size: 18px;
@@ -81,7 +81,7 @@ header h1 {
 }
 
 .content-container a:hover {
-    background-color: #005f8a; /* Darker blue on hover */
+    background-color: #005f8a; 
 }
 
 /* Footer styling */
