@@ -1,5 +1,17 @@
 {
     "karina": {
         "password": "123"
+    },
+    "clara": {
+        "password": "123"
+    },
+    "Logan": {
+        "password": "123"
+    },
+    "logan": {
+        "password": "123"
+    },
+    "daniel": {
+        "password": "port"
     }
 }
